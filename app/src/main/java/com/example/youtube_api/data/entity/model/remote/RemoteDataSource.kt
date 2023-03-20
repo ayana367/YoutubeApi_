@@ -20,11 +20,11 @@ class RemoteDataSource : BaseDataSource() {
     }
 
     suspend fun getPLaylistItem(playlistId: String) = getResult {
-        apiService.getPlaylistItems("", "snippet,contentDetails", playlistId)
+        apiService.getPlaylistItems(BuildConfig.API_KEY, "snippet,contentDetails", playlistId)
     }
 
     suspend fun getVideo(videoId: String) = getResult {
-        apiService.getVideo("","snippet,contentDetails",videoId)
+        apiService.getVideo(BuildConfig.API_KEY,"snippet,contentDetails",videoId)
     }
 }
 
