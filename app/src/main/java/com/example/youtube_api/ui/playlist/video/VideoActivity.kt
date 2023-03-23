@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.view.LayoutInflater
 import androidx.core.view.isVisible
-import androidx.lifecycle.ViewModelProvider
 import com.example.youtube_api.R
 import com.example.youtube_api.core.network.result.Status
 import com.example.youtube_api.core.network.ext.showToast
@@ -14,16 +13,16 @@ import com.example.youtube_api.ui.playlist.PlaylistsActivity
 import com.example.youtube_api.ui.playlist.item.ItemPlaylistsActivity
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.material.button.MaterialButton
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class VideosActivity : BaseActivity<VideoViewModel, ActivityVideoBinding>() {
-    override val viewModel: VideoViewModel by lazy {
-        ViewModelProvider(this)[VideoViewModel::class.java]
-    }
+    override val viewModel: VideoViewModel by viewModel()
 
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityVideoBinding {
         return ActivityVideoBinding.inflate(layoutInflater)
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun initViewModel() {
         super.initView()
         viewModel.loading.observe(this){
@@ -79,6 +78,7 @@ class VideosActivity : BaseActivity<VideoViewModel, ActivityVideoBinding>() {
         player.setMediaItem(mediaItem)
         binding.playerView.player = player
     }
+
     companion object{
         const val URL = "https://html5videoformatconverter.com/data/images/happyfit2.mp4"
     }

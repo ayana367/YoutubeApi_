@@ -36,8 +36,7 @@
                 android:layout_marginStart="@dimen/card"
                 android:text="@string/_1080p"
                 android:paddingStart="@dimen/xx"
-                android:layout_marginTop="@dimen/hod"
-                android:buttonTint="@color/red"/>
+                android:layout_marginTop="@dimen/hod" />
 
             <RadioButton
                 android:id="@+id/two"
@@ -45,7 +44,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/card"
                 android:text="@string/_720p"
-                android:buttonTint="@color/red"
                 android:paddingStart="@dimen/xx"
                 android:layout_marginTop="@dimen/m_t" />
 
@@ -55,7 +53,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/m_t"
                 android:text="@string/_480p"
-                android:buttonTint="@color/red"
                 android:paddingStart="@dimen/xx"
                 android:layout_marginTop="@dimen/card" />
 

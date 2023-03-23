@@ -4,7 +4,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
-import androidx.lifecycle.ViewModelProvider
 import com.example.youtube_api.R
 import com.example.youtube_api.core.network.ext.isNetworkConnected
 import com.example.youtube_api.core.network.result.Status
@@ -14,21 +13,23 @@ import com.example.youtube_api.data.entity.model.ItemsItem
 import com.example.youtube_api.databinding.PlaylistMainBinding
 import com.example.youtube_api.ui.playlist.item.ItemPlaylistsActivity
 import com.example.youtube_api.util.InternetConnectivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PlaylistsActivity : BaseActivity<PlaylistsViewModel, PlaylistMainBinding>() {
+ class PlaylistsActivity : BaseActivity<PlaylistsViewModel, PlaylistMainBinding>() {
 
     private lateinit var adapterPlaylist : AdapterPlaylist
     private val registerForActivity =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {}
 
-    override val viewModel: PlaylistsViewModel by lazy {
-        ViewModelProvider(this)[PlaylistsViewModel::class.java]
-    }
+
+    override val viewModel: PlaylistsViewModel by viewModel()
+
     override fun inflateViewBinding(inflater: LayoutInflater): PlaylistMainBinding {
         return PlaylistMainBinding.inflate(layoutInflater)
     }
 
     override fun initViewModel() {
+        binding.containerToolbar.tvBack.isVisible = false
         viewModel.loading.observe(this){
             binding.progressCircular.isVisible = it
         }

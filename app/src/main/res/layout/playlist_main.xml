@@ -4,14 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.playlist.PlaylistActivity">
+    tools:context=".ui.playlist.PlaylistsActivity">
+
+    <include
+        android:id="@+id/container_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/toolbar_app"
+       app:layout_constraintTop_toTopOf="parent"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         tools:listitem="@layout/item_playlists"
         android:id="@+id/recycler_main"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_toolbar"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <include
         android:id="@+id/no_internet"

@@ -9,5 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF0000</color>
     <color name="grey">#F6F6F6</color>
-    <color name="dialog_color">#80000000</color>
+    <color name="dialog_color">#B3000000</color>
 </resources>

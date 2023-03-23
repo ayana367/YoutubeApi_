@@ -2,19 +2,19 @@ package com.example.youtube_api.data.entity.model.remote
 
 import com.example.youtube_api.BuildConfig
 import com.example.youtube_api.core.network.BaseDataSource
-import com.example.youtube_api.core.network.RetrofitClient
+import org.koin.dsl.module
+
+val remoteDataSourceModule = module {
+    factory { RemoteDataSource(get()) }
+}
 
 
-class RemoteDataSource : BaseDataSource() {
-    private val apiService: ApiService by lazy {
-        RetrofitClient.create()
-
-    }
+class RemoteDataSource(private val apiService: ApiService) : BaseDataSource() {
 
     suspend fun getPlaylist() = getResult {
         apiService.getPlaylists(
             "snippet,contentDetails",
-            "UCJuMbdKSMThk2RpALASyXVQ",
+            "UCpiEjwzOPvQrmoDk1OlAPKg",
             BuildConfig.API_KEY
         )
     }

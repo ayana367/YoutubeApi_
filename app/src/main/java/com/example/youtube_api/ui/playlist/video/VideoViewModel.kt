@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData
 import com.example.youtube_api.core.network.result.Resource
 import com.example.youtube_api.core.network.ui.BaseViewModel
 import com.example.youtube_api.data.entity.model.ItemsItem
-import com.example.youtube_api.App
+import com.example.youtube_api.repository.Repository
 
-class VideoViewModel : BaseViewModel() {
+class VideoViewModel(private val repository: Repository) : BaseViewModel() {
 
     fun getVideo(videoId : String) : LiveData<Resource<ItemsItem>>{
-        return App.repository.getVideo(videoId)
+        return repository.getVideo(videoId)
     }
 }
